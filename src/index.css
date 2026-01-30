@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import url('https://api.fontshare.com[]=satoshi@1,2&display=swap');
+@font-face {
+  font-family: 'Integral CF';
+  src: url('./assets/fonts/IntegralCF-Bold.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+}
+@import url('https://api.fontshare.com[]=satoshi@700,500,400&display=swap');
+
+body {
+  font-family: 'Satoshi', sans-serif;
+}
