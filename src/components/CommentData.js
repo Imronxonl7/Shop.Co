@@ -1,0 +1,22 @@
+export const reviews = [
+  { name: "Daniel R.", rating: 4.5, text: "Shopo.co clothes feel premium and stylish. Every item looks exactly like the photos." },
+  { name: "Emma K.", rating: 4, text: "Great selection of elegant and casual wear. Quality is consistently good." },
+  { name: "Oliver M.", rating: 5, text: "Amazing experience overall. The designs are modern and very well made." },
+  { name: "Sophia T.", rating: 4.5, text: "I love how fashionable yet comfortable the outfits are. Definitely recommend." },
+  { name: "William S.", rating: 4, text: "Stylish clothing with solid quality. Delivery was quick too." },
+  { name: "Ava L.", rating: 4.5, text: "The dresses are elegant and flattering. Fabric quality exceeded my expectations." },
+  { name: "Benjamin H.", rating: 5, text: "One of the best online clothing stores I’ve tried. Unique and trendy pieces." },
+  { name: "Mia C.", rating: 4, text: "Nice balance between casual and classy styles. Easy to mix and match." },
+  { name: "Lucas P.", rating: 4.5, text: "Everything I ordered fits perfectly. Shopo.co really understands style." },
+  { name: "Ella N.", rating: 4, text: "Beautiful designs and reasonable prices. Will order again." },
+  { name: "Henry D.", rating: 5, text: "Top-notch quality and attention to detail. Feels like a luxury brand." },
+  { name: "Grace F.", rating: 4.5, text: "The variety is impressive. From daily wear to special occasions." },
+  { name: "Jack W.", rating: 4, text: "Comfortable, stylish, and well-made clothes. Exactly what I was looking for." },
+  { name: "Lily A.", rating: 4.5, text: "Every piece feels thoughtfully designed. Elegant without being overdone." },
+  { name: "Samuel B.", rating: 5, text: "Exceeded expectations. The styles are fresh and modern." },
+  { name: "Chloe E.", rating: 4, text: "Great quality fabrics and flattering cuts. Very happy with my purchase." },
+  { name: "Nathan J.", rating: 4.5, text: "Perfect mix of trendy and timeless fashion. Shopo.co nailed it." },
+  { name: "Zoe K.", rating: 4, text: "The clothes feel premium and look amazing in person." },
+  { name: "Andrew V.", rating: 5, text: "High-end look without the high-end price. Highly impressed." },
+  { name: "Hannah Q.", rating: 4.5, text: "Stylish, elegant, and comfortable. These outfits boost my confidence." }
+];

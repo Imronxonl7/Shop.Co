@@ -5,12 +5,16 @@ import axios from "axios";
 import { Atom } from "react-loading-indicators";
 import ProductCard from "../../components/ProductCard";
 import SwiperProduct from "../../components/SwiperProduct";
+import NewArrivals from "../../components/NewArrivals";
+import { reviews } from "../../components/CommentData";
+
 
 const HomePage = () => {
   const getData = async () => {
     let res = await axios.get(`https://fakestoreapi.com/products`);
     return res;
   };
+  
   const { data, isLoading, error } = useQuery({
     queryKey: ["products"],
     queryFn: getData,
@@ -23,7 +27,7 @@ const HomePage = () => {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center mt-100">
+      <div className="flex items-center justify-center mt-50">
         <Atom
           style={{
             display: "flex",
@@ -38,19 +42,33 @@ const HomePage = () => {
       </div>
     );
   }
+  const comment = reviews?.map((el) => {
+    return el
+    
+  })
   return (
     <>
       <AboutPage />
 
       <section id="onSale" className="">
         <div className="container mx-auto px-15 py-7">
-          <SwiperProduct allCategories={allCategories} products={products}/>
+          <SwiperProduct allCategories={allCategories} products={products} />
         </div>
       </section>
 
-      <section id="newArrivals"></section>
+      <section id="newArrivals" className="mt-20">
+        <NewArrivals/>
+      </section>
 
-      <section></section>
+      <section>
+
+        
+         {/* {
+          comment?.map((el) => (
+            
+          ))
+         } */}
+      </section>
     </>
   );
 };

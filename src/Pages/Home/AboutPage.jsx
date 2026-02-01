@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from "react";
 import CountUp from "react-countup";
 import Marquee from "react-fast-marquee";
 import MyComponent from "../../components/MyComponent";
+import { Link } from "react-scroll";
+import { NavLink } from "react-router-dom";
 
 const AboutPage = () => {
   const ref = useRef(null);
@@ -51,9 +53,9 @@ const AboutPage = () => {
                   to your sense of style.
                 </p>
                 
-                <button className="w-full sm:w-auto px-12 sm:px-14 lg:px-13.5 py-3 lg:py-4 rounded-full bg-[#000000] text-sm sm:text-base text-white font-medium hover:bg-[#333] transition-colors">
+                <NavLink to={"/filter"} className="w-full sm:w-auto px-12 sm:px-14 lg:px-13.5 py-3 lg:py-4 rounded-full bg-[#000000] text-sm sm:text-base text-white font-medium hover:bg-[#333] transition-colors">
                   Shop Now
-                </button>
+                </NavLink>
               </div>
               
               {/* Stats Section */}
