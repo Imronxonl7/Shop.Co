@@ -14,3 +14,22 @@ html {
 body {
   font-family: 'Satoshi', sans-serif;
 }
+.mySwiper .swiper-pagination {
+  bottom: 0 !important; /* Container pastida */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}
+mySwiper .swiper-pagination-bullet {
+  width: 10px;
+  height: 10px;
+  background: #d1d5db; /* gray-300 */
+  opacity: 1;
+  transition: all 0.3s ease;
+  margin: 0 4px !important;
+  cursor: pointer;
+}
+.swiper-pagination-bullet-active{
+  background-color: black !important;
+}
