@@ -3,49 +3,48 @@ import AboutPage from "./AboutPage";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { Atom } from "react-loading-indicators";
-import ProductCard from "../../components/ProductCard";
 import SwiperProduct from "../../components/SwiperProduct";
 import NewArrivals from "../../components/NewArrivals";
 import { reviews } from "../../components/CommentData";
-
+import CustomerReviews from "../../components/CustomerReviews";
+import useReactQuery from "../../hooks/useReactQuery";
 
 const HomePage = () => {
-  const getData = async () => {
-    let res = await axios.get(`https://fakestoreapi.com/products`);
-    return res;
-  };
   
-  const { data, isLoading, error } = useQuery({
-    queryKey: ["products"],
-    queryFn: getData,
-  });
+
+  const { data, isLoading} = useReactQuery({url:'products' , key:'products'});
   const products = data?.data;
-  const categories = products?.map((el) => {
-    return el?.category;
+  console.log(products);
+  
+  
+  const categories = products?.map((item) => {
+    return item?.category;
   });
   const allCategories = [...new Set(categories)];
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center mt-50">
-        <Atom
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-          }}
-          color="#000000"
-          size="large"
-          text=""
-          textColor=""
-        />
+      // <div className="flex items-center justify-center mt-50">
+      //   <Atom
+      //     style={{
+      //       display: "flex",
+      //       alignItems: "center",
+      //       justifyContent: "center",
+      //     }}
+      //     color="#000000"
+      //     size="large"
+      //     text=""
+      //     textColor=""
+      //   />
+      // </div>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="text-center">
+          <div className="inline-block animate-spin rounded-full h-12 w-12 border-4 border-gray-200 border-t-black"></div>
+          <p className="mt-4 text-gray-600">Loading...</p>
+        </div>
       </div>
     );
   }
-  const comment = reviews?.map((el) => {
-    return el
-    
-  })
   return (
     <>
       <AboutPage />
@@ -57,17 +56,11 @@ const HomePage = () => {
       </section>
 
       <section id="newArrivals" className="mt-20">
-        <NewArrivals/>
+        <NewArrivals />
       </section>
 
-      <section>
-
-        
-         {/* {
-          comment?.map((el) => (
-            
-          ))
-         } */}
+      <section className="mt-20">
+        <CustomerReviews/>
       </section>
     </>
   );
