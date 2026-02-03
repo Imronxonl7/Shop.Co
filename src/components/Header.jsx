@@ -5,10 +5,11 @@ import { PiShoppingCartSimpleBold, PiUserCircleBold } from 'react-icons/pi';
 import { Link } from 'react-router-dom';
 import { Drawer, Button, Menu } from "antd";
 import { MenuOutlined } from "@ant-design/icons";
+import { useSelector } from 'react-redux';
 
 const Header = () => {
   const [open, setOpen] = useState(false);
-  
+  const cart = useSelector((state) => state.cart)
   const scrollToSection = (id) => {
     const section = document.getElementById(id);
     if (section) section.scrollIntoView({ behavior: "smooth" });
@@ -88,7 +89,7 @@ const Header = () => {
             <div className='flex items-center gap-3 sm:gap-4 '>
               <Link to={'/cart'} className='hover:opacity-70 transition-opacity relative'>
                 <PiShoppingCartSimpleBold className='w-5 h-5 sm:w-6 sm:h-6' />
-                <p className=' -top-2 -right-2 bg-black border border-white text-[12px] flex items-center justify-center absolute px-0.5 rounded-[100%]  text-white'>30</p>
+                <p className='w-5 h-5 -top-2 -right-2 bg-black border border-white text-[12px] flex items-center justify-center absolute px-0.5 rounded-[100%]  text-white'>{cart.length}</p>
               </Link>
               <Link to={'/registar'} className='hover:opacity-70 transition-opacity'>
                 <PiUserCircleBold className='w-5 h-5 sm:w-6 sm:h-6' />

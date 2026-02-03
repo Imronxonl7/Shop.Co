@@ -356,7 +356,7 @@ const FilterPage = () => {
               {currentProducts.map((product) => (
                 <Link
                   key={product.id}
-                  to={`/product/${product.id}`}
+                  to={`/single/${product.id}`}
                   className="group"
                 >
                   <div className="bg-[#F0EEED] rounded-[20px] overflow-hidden mb-3 aspect-square p-4 sm:p-6">

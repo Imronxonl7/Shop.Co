@@ -5,12 +5,12 @@ const Footer = () => {
   return (
     <footer className="w-full bg-[#F0F0F0] mt-50 relative">
       {/* Newsletter Section */}
-      <div className="max-w-310 mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
-        <div className='flex justify-center'>
+      <div className="max-w-310 mx-auto px-5 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
+        <div className='flex justify-center px-5'>
           <div className="bg-black absolute -top-35 rounded-[20px] sm:rounded-[30px] lg:rounded-[40px] px-6 sm:px-12 lg:px-16 py-8 sm:py-10 lg:py-12">
-          <div className="flex  flex-col lg:flex-row items-center justify-between gap-6 lg:gap-12">
+          <div className="flex  flex-col lg:flex-row  items-center justify-between gap-6 lg:gap-12">
             {/* Heading */}
-            <h2 className="text-white font-black text-2xl sm:text-3xl lg:text-[40px] xl:text-5xl leading-tight text-center lg:text-left max-w-137.5">
+            <h2 className="text-white font-black text-xl sm:text-3xl lg:text-[40px] xl:text-5xl leading-tight text-center lg:text-left max-w-137.5">
               STAY UPTO DATE ABOUT OUR LATEST OFFERS
             </h2>
             

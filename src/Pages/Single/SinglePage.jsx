@@ -5,13 +5,18 @@ import { useParams, Link } from "react-router-dom";
 import { Minus, Plus, ShoppingCart, Star } from "lucide-react";
 import useReactQuery from "../../hooks/useReactQuery";
 import CustomerReviews from "../../components/CustomerReviews";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, decrease, increase } from "../../app/cartSlice";
 
 const SinglePage = () => {
   const { id } = useParams();
+  const cart = useSelector((state) => state.cart)
   const { data, isLoading } = useReactQuery({
     url: `products/${id}`,
     key: ["products", id],
   });
+    const dispatch = useDispatch()
+
 
   const singleProduct = data?.data;
 
@@ -80,7 +85,6 @@ const SinglePage = () => {
       setQuantity((prev) => prev - 1);
     }
   };
-
   return (
     <section className="py-8 sm:py-12 lg:py-16 bg-white">
       <div className="max-w-360 mx-auto px-4 sm:px-6 lg:px-16">
@@ -262,32 +266,39 @@ const SinglePage = () => {
 
             {/* Quantity and Add to Cart */}
             <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              {/* Quantity Selector */}
-              <div className="flex items-center bg-[#F0F0F0] rounded-full px-5 py-3 sm:py-4 w-full sm:w-auto">
+             
+              {
+                cart?.find((el) => el.id === singleProduct.id) ? ( 
+              <div className="flex items-center justify-between bg-[#F0F0F0] rounded-full px-5 py-3 sm:py-4 w-full ">
                 <button
-                  onClick={() => handleQuantityChange("decrement")}
-                  className="p-1 hover:bg-gray-200 rounded-full transition-colors"
+                  onClick={() => dispatch(decrease(singleProduct?.id))}
+                  className="p-1 hover:bg-gray-200 rounded-full cursor-pointer transition-colors"
                   aria-label="Decrease quantity"
                 >
-                  <Minus className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Minus className="w-4 lg:w-6 h-4 lg:h-6  sm:w-5 sm:h-5" />
                 </button>
                 <span className="mx-6 sm:mx-8 font-medium text-base sm:text-lg min-w-5 text-center">
-                 1
+                 {
+                  cart?.find((el) => el.id === singleProduct.id)?.qty
+                 }
                 </span>
                 <button
-                  onClick={() => handleQuantityChange("increment")}
-                  className="p-1 hover:bg-gray-200 rounded-full transition-colors"
+                  onClick={() => dispatch(increase(singleProduct?.id))}
+                  className="p-1 hover:bg-gray-200 cursor-pointer rounded-full transition-colors"
                   aria-label="Increase quantity"
                 >
-                  <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <Plus 
+                  
+                  className="w-4 lg:w-6 h-4 lg:h-6  sm:w-5 sm:h-5" />
                 </button>
-              </div>
-
-              {/* Add to Cart Button */}
-              <button className="flex-1 bg-black text-white rounded-full px-8 py-3 sm:py-4 font-medium text-base sm:text-lg hover:bg-gray-900 transition-colors flex items-center justify-center gap-2">
-                <ShoppingCart className="w-5 h-5" />
+              </div>) : (
+              <button onClick={()=> dispatch(addToCart(singleProduct))} className="flex-1 bg-black text-white rounded-full px-8 py-3 sm:py-4 font-medium text-base sm:text-lg hover:bg-gray-900 transition-colors flex items-center justify-center gap-2">
+                <ShoppingCart className="lg:w-6 lg:h-6 w-5 h-5" />
                 Add to Cart
-              </button>
+              </button>)
+              }
+
+              
             </div>
           </div>
         </div>
@@ -327,7 +338,6 @@ const SinglePage = () => {
               FAQs
             </button>
           </div>
-
           {/* Tab Content */}
           <div className="py-8 sm:py-10">
             {activeTab === "details" && (
